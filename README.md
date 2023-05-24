@@ -1,6 +1,6 @@
 # NFR
 
-This is the repository that contains source code for the [NFR website](https://nerfies.github.io).
+This is the repository that contains source code for the [NFR website](https://dafei-qin.github.io/NFR/).
 
 If you find NFR useful for your work please cite:
 ```
