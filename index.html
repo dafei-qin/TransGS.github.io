@@ -88,7 +88,8 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Neural Face Rigging for Animating and Retargeting Facial Meshes in the Wild</h1>
+          <h1 class="title is-1 publication-title">Instant Facial Gaussians Translator for Relightable and Interactable Facial Rendering
+          </h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://dafei-qin.github.io/dafei-qin/">Dafei Qin</a></a><sup>1</sup>,</span>
@@ -128,7 +129,7 @@
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
                   </span>
-                  <span>arXiv</span>
+                  <span>arXiv(Upcoming)</span>
                 </a>
               </span>
               <!-- Video Link. -->
@@ -148,11 +149,19 @@
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
-                  <span>Code</span>
+                  <span>Code(Upcoming)</span>
                   </a>
               </span>
               <!-- Dataset Link. -->
-
+              <span class="link-block">
+                <a href="https://github.com/dafei-qin/NFR_pytorch"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Demo(Upcoming)</span>
+                  </a>
+              </span>
             </div>
 
           </div>
@@ -170,7 +179,7 @@
                 type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
-        Neural Face Rigging instantly rigify and transfer facial animation to in-the-wild facial meshes.
+      TransGS convert PBR facial assets to high-quality 3DGS in 5 seconds, delivering unprecedented real-time rendering quality on mobile platforms.
       </h2>
     </div>
   </div>
@@ -188,15 +197,13 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We propose an end-to-end deep-learning approach for automatic rigging and retargeting of 3D models of human faces in the wild. Our approach, called Neural Face Rigging (NFR), holds three key properties: 
+            we propose GauFace, a novel Gaussian Splatting representation, tailored for efficient animation and rendering of physically-based facial assets. Leveraging strong geometric priors and constrained optimization, GauFace ensures a neat and structured Gaussian representation suitable for efficient rendering and generative modeling.
           </p>
-          <p>(i) NFR's expression space maintains human-interpretable editing parameters for artistic controls;</p>
-          <p>(ii) NFR is readily applicable to arbitrary facial meshes with different connectivity and expressions;</p>
+          <p>We introduce TransGS, a diffusion transformer that instantly translates physically-based facial assets into the corresponding GauFace representations.</p>
+          <p>Once trained, TransGS can instantly translate facial assets with lighting conditions to GauFace representation, delivering high fidelity and real-time facial interaction of 30fps@1440p on a Snapdragon 8 Gen 2 mobile platform. </p>
 
-          <p>(iii) NFR can encode and produce fine-grained details of complex expressions performed by arbitrary subjects.  </p>
-          <p>
-          To the best of our knowledge, NFR is the first approach to provide realistic and controllable deformations of in-the-wild facial meshes, without the manual creation of blendshapes or correspondence. We design a deformation autoencoder and train it through a multi-dataset training scheme, which benefits from the unique advantages of two data sources: a linear 3DMM with interpretable control parameters as in FACS, and 4D captures of real faces with fine-grained details. Through various experiments, we show NFR's ability to automatically produce realistic and accurate facial deformations across a wide range of existing datasets as well as noisy facial scans in-the-wild, while providing artist-controlled, editable parameters. 
-          </p>
+          <p>With the rich conditioning modalities, it also enables editing and animation capabilities reminiscent of traditional CG pipelines. </p>
+
           
         </div>
       </div>
