@@ -7,10 +7,25 @@
   <meta name="keywords" content="TransG, GauFace, Facial Rendering, 3D Gaussian Splatting">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    .slider-container {
+    .carousel-container {
       position: relative;
-      width: 50vw; /* Full viewport width */
-      height: 50vh; /* Full viewport height */
+      width: 45vw;
+      height: 45vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .slider-wrapper {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .slider-container {
+      min-width: 45vw;
+      height: 45vh;
+      position: relative;
       overflow: hidden;
     }
 
@@ -21,7 +36,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover; /* Cover entire container without distortion */
+      object-fit: cover;
     }
 
     .slider-bar {
@@ -33,7 +48,26 @@
       background-color: #fff;
       cursor: ew-resize;
       z-index: 10;
-      /* Remove transition for instant update */
+    }
+
+    .nav-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 20;
+    }
+
+    .nav-button.left {
+      left: 10px;
+    }
+
+    .nav-button.right {
+      right: 10px;
     }
   </style>
 </head>
@@ -331,33 +365,79 @@
         <div class="column is-full-width">
           <h2 class="title is-3">Interactive Editing</h2>
     
-          <!-- Slider Container -->
-          <div class="slider-container" id="sliderContainer">
-            <img src="./static/images/diffuse_before.jpg" alt="Image 1" class="slider-image1">
-            <img src="./static/images/diffuse_after.jpg" alt="Image 2" class="slider-image2">
-            <div class="slider-bar" id="sliderBar"></div>
+          <div class="carousel-container">
+            <!-- Navigation Buttons -->
+            <button class="nav-button left" id="prevButton">&#10094;</button>
+            <button class="nav-button right" id="nextButton">&#10095;</button>
+          
+            <!-- Slider Wrapper -->
+            <div class="slider-wrapper" id="sliderWrapper">
+              <!-- First Slider -->
+              <div class="slider-container" id="sliderContainer1">
+                <img src="./static/images/diffuse_before.jpg" alt="Image 1" class="slider-image1">
+                <img src="./static/images/diffuse_after.jpg" alt="Image 2" class="slider-image2">
+                <div class="slider-bar" id="sliderBar1"></div>
+              </div>
+              <!-- Second Slider -->
+              <div class="slider-container" id="sliderContainer2">
+                <img src="./static/images/image1_before.jpg" alt="Image 1" class="slider-image1">
+                <img src="./static/images/image1_after.jpg" alt="Image 2" class="slider-image2">
+                <div class="slider-bar" id="sliderBar2"></div>
+              </div>
+              <!-- Third Slider -->
+              <div class="slider-container" id="sliderContainer3">
+                <img src="./static/images/image2_before.jpg" alt="Image 1" class="slider-image1">
+                <img src="./static/images/image2_after.jpg" alt="Image 2" class="slider-image2">
+                <div class="slider-bar" id="sliderBar3"></div>
+              </div>
+            </div>
           </div>
-    
+          
           <!-- Slider Script -->
           <script>
-            const container = document.getElementById('sliderContainer');
-            const slider = document.getElementById('sliderBar');
-            const image2 = document.querySelector('.slider-image2');
-    
-            container.addEventListener('mousemove', (e) => {
-              const containerRect = container.getBoundingClientRect();
-              const offsetX = e.clientX - containerRect.left;
-              const percent = (offsetX / containerRect.width) * 100;
-              slider.style.left = percent + '%';
-              image2.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
+            // Slider functionality
+            const sliderContainers = document.querySelectorAll('.slider-container');
+            sliderContainers.forEach(container => {
+              const slider = container.querySelector('.slider-bar');
+              const image2 = container.querySelector('.slider-image2');
+          
+              container.addEventListener('mousemove', (e) => {
+                const containerRect = container.getBoundingClientRect();
+                const offsetX = e.clientX - containerRect.left;
+                const percent = (offsetX / containerRect.width) * 100;
+                slider.style.left = percent + '%';
+                image2.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
+              });
+          
+              container.addEventListener('mouseleave', () => {
+                slider.style.left = '50%';
+                image2.style.clipPath = 'inset(0 50% 0 0)';
+              });
             });
-    
-            container.addEventListener('mouseleave', () => {
-              slider.style.left = '50%';
-              image2.style.clipPath = 'inset(0 50% 0 0)';
+          
+            // Carousel functionality
+            let currentIndex = 0;
+            const totalSlides = sliderContainers.length;
+            const sliderWrapper = document.getElementById('sliderWrapper');
+            const prevButton = document.getElementById('prevButton');
+            const nextButton = document.getElementById('nextButton');
+          
+            function showSlide(index) {
+              sliderWrapper.style.transform = `translateX(-${index * 100}vw)`;
+            }
+          
+            prevButton.addEventListener('click', () => {
+              currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+              showSlide(currentIndex);
             });
+          
+            nextButton.addEventListener('click', () => {
+              currentIndex = (currentIndex + 1) % totalSlides;
+              showSlide(currentIndex);
+            });
+          
+            showSlide(currentIndex);
           </script>
-          <!-- End of Slider Script -->
     
         </div>
       </div>
