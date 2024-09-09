@@ -6,17 +6,16 @@
         content="TransGS convert PBR facial assets to high-quality 3DGS in 5 seconds, delivering unprecedented real-time rendering quality on mobile platforms.">
   <meta name="keywords" content="TransG, GauFace, Facial Rendering, 3D Gaussian Splatting">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- 
   <style>
-    .container {
+    .slider-container {
       position: relative;
       width: 500px; /* Adjust the width as needed */
       height: 300px; /* Adjust the height as needed */
       overflow: hidden;
     }
-  
-    .image1,
-    .image2 {
+
+    .slider-image1,
+    .slider-image2 {
       position: absolute;
       top: 0;
       left: 0;
@@ -24,8 +23,8 @@
       height: 100%;
       transition: clip-path 0.5s ease;
     }
-  
-    .slider {
+
+    .slider-bar {
       position: absolute;
       top: 0;
       bottom: 0;
@@ -36,7 +35,9 @@
       z-index: 10;
       transition: left 0.5s ease;
     }
-  </style> -->
+  </style>
+</head>
+<body>
   </head>
   <body>
 
@@ -344,44 +345,41 @@
       </div>
     </div>
     <!--/ Animation. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Interactive Editing</h2>
-
-        <!-- Interpolating. -->
-        
-        <div class="content has-text-justified">
-          <p>
-            Editing of the Diffuse, Normal and Specular textures can be interactively synthesized to the <em1><span style="color: #305794">GauFace</span></em> representation, leveraging the rich conditions of <em><span style="color: #E4AE00;">TransGS</span></em>.
-          </p>
+    <div class="container is-max-desktop">
+      <!-- Interactive Editing Section -->
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Interactive Editing</h2>
+    
+          <!-- Slider Container -->
+          <div class="slider-container" id="sliderContainer">
+            <img src="./static/images/diffuse_before.jpg" alt="Image 1" class="slider-image1">
+            <img src="./static/images/diffuse_after.jpg" alt="Image 2" class="slider-image2">
+            <div class="slider-bar" id="sliderBar"></div>
+          </div>
+    
+          <!-- Slider Script -->
+          <script>
+            const container = document.getElementById('sliderContainer');
+            const slider = document.getElementById('sliderBar');
+            const image2 = document.querySelector('.slider-image2');
+    
+            container.addEventListener('mousemove', (e) => {
+              const containerRect = container.getBoundingClientRect();
+              const offsetX = e.clientX - containerRect.left;
+              const percent = (offsetX / containerRect.width) * 100;
+              slider.style.left = percent + '%';
+              image2.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
+            });
+    
+            container.addEventListener('mouseleave', () => {
+              slider.style.left = '50%';
+              image2.style.clipPath = 'inset(0 50% 0 0)';
+            });
+          </script>
+          <!-- End of Slider Script -->
+    
         </div>
-        
-        <div class="container" id="sliderContainer">
-          <img src="./static/images/diffuse_before.jpg" alt="Image 1" class="image1">
-          <img src="./static/images/diffuse_after.jpg" alt="Image 2" class="image2">
-          <div class="slider" id="sliderBar"></div>
-        </div>
-        
-        <script>
-          const container = document.getElementById('sliderContainer');
-          const slider = document.getElementById('sliderBar');
-          const image2 = document.querySelector('.image2');
-        
-          container.addEventListener('mousemove', (e) => {
-            const containerRect = container.getBoundingClientRect();
-            const offsetX = e.clientX - containerRect.left;
-            const percent = (offsetX / containerRect.width) * 100;
-            slider.style.left = percent + '%';
-            image2.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
-          });
-        
-          container.addEventListener('mouseleave', () => {
-            slider.style.left = '50%';
-            image2.style.clipPath = 'inset(0 50% 0 0)';
-          });
-        </script>
-
-        <br/>
       </div>
     </div>
 
