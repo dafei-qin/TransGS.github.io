@@ -9,8 +9,8 @@
   <style>
     .slider-container {
       position: relative;
-      width: 500px; /* Adjust the width as needed */
-      height: 300px; /* Adjust the height as needed */
+      width: 100vw; /* Full viewport width */
+      height: 100vh; /* Full viewport height */
       overflow: hidden;
     }
 
@@ -21,7 +21,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      transition: clip-path 0.5s ease;
+      object-fit: cover; /* Cover entire container without distortion */
     }
 
     .slider-bar {
@@ -33,7 +33,7 @@
       background-color: #fff;
       cursor: ew-resize;
       z-index: 10;
-      transition: left 0.5s ease;
+      /* Remove transition for instant update */
     }
   </style>
 </head>
@@ -326,26 +326,6 @@
     <!--/ Matting. -->
 
     <!-- Animation. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Fully Functional Animation</h2>
-
-        <!-- Interpolating. -->
-        
-        <div class="content has-text-justified">
-          <p>
-            Thanks to the explicit rigging  on the facial mesh, driving signals can be directly applied to <em><span style="color: #305794">GauFace</span></em> for animation.
-          </p>
-        </div>
-        <video id="ARKit" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/ARKit.mp4"
-                    type="video/mp4">
-          </video>
-        <br/>
-      </div>
-    </div>
-    <!--/ Animation. -->
-    <div class="container is-max-desktop">
       <!-- Interactive Editing Section -->
       <div class="columns is-centered">
         <div class="column is-full-width">
