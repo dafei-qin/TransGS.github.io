@@ -197,7 +197,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            we propose <em><span style="color: #305794">GauFace</span></em>, a novel Gaussian Splatting representation, tailored for efficient animation and rendering of physically-based facial assets. Leveraging strong geometric priors and constrained optimization, <em><span style="color: #305794">GauFace</span></em> ensures a neat and structured Gaussian representation suitable for efficient rendering and generative modeling.
+            We propose <em><span style="color: #305794">GauFace</span></em>, a novel Gaussian Splatting representation, tailored for efficient animation and rendering of physically-based facial assets. Leveraging strong geometric priors and constrained optimization, <em><span style="color: #305794">GauFace</span></em> ensures a neat and structured Gaussian representation suitable for efficient rendering and generative modeling.
           </p>
           <p>We introduce <em><span style="color: #E4AE00;">TransGS</span></em>, a diffusion transformer that instantly translates physically-based facial assets into the corresponding <em><span style="color: #305794">GauFace</span></em> representations.</p>
           <p>Once trained, <em><span style="color: #E4AE00;">TransGS</span></em> can instantly translate facial assets with lighting conditions to <em><span style="color: #305794">GauFace</span></em> representation, delivering high fidelity and real-time facial interaction of 30fps@1440p on a Snapdragon 8 Gen 2 mobile platform. </p>
@@ -228,7 +228,27 @@
   <div class="container is-max-desktop">
 
     <div class="columns is-centered">
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3"><em><span style="color: #305794">GauFace</span></em> Representation & Dataset</h2>
+          <img src="./static/images/Gauface.png" class="interpolation-image"/>
+          <p>
+             <i>Left</i> We collect 143 facial assets under 134 lighting conditions, with a total of 1,023 combinations. <i>Middle</i> For each combination, we render 1,071 frames under 153 different expressions with random camera positions. <i>Right</i> Our <em><span style="color: #305794">GauFace</span></em> asset defines the center of Gaussians on the UV map consistent across different identities and introduces dynamic shadow vectors to disentangle the deformation-dependent and deformation-agnostic shading effects.
+          </p>
+        </div>
 
+        <div class="content">
+          <h2 class="title is-3"><em><span style="color: #E4AE00;">TransGS</span></em> Structure</h2>
+          <img src="./static/images/gsg_arch.jpg" class="interpolation-image"/>
+          <p>
+            We condition <em><span style="color: #E4AE00;">TransGS</span></em> on the image textures <em><i>I</i></em>, geometry code <em><i>G</i></em> and HDRI map <em><i>L</i></em>, to generate the <em><span style="color: #305794">GauFace</span></em> asset<em><i>A</i></em> in a patch-based manner. <i>Left:</i>> during training, a random global offset <em><i>q</i></em> is sampled, and the corresponding Image patch <em><i>I_q</i></em> and <em><span style="color: #305794">GauFace</span></em> patch <em><i>A_q</i></em> are fed to the diffusion transformer. <i>Right:</i> at inference, the full <em><span style="color: #305794">GauFace</span></em> asset can be synthesized in a single pass. 
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-centered">
+    <div class="columns is-centered">
       <!-- Visual Effects. -->
       <div class="column">
         <div class="content">
@@ -241,19 +261,6 @@
             The PBR facial assets are obtained from diverse sources.  Row 1-3: Generated from <a
             href="https://hyperhuman.deemos.com/chatavatar">ChatAvatar</a>, a text/image-to-face generator. Row 4: Downloaded from web. Row 5: Scanned from a Light Stage. All figures are rendered under our cross-platform Unity3D <em><span style="color: #305794">GauFace</span></em> render engine.
            </p>
-          <!-- <h3 class="title is-4">From rigged meshes</h3>
-          <p>
-            Retargeting <em><span style="color: #E4AE00;">ICT FaceKit</span></em> animation to <em><span style="color: #305794">TripleGangers</span></em>, <em><span style="color: #305794">FacewareHouse</span></em> and <span style="color: #305794"><em>Raw Scan</em></span>.
-          </p>
-          
-          <h3 class="title is-4">From 4D scans</h3>
-          <p>
-            Retargeting <em><span style="color: #E4AE00;">Multiface</span></em> speaking animation to <em><span style="color: #305794">TripleGangers</span></em>, <em><span style="color: #305794">FacewareHouse</span></em> and <span style="color: #305794"><em>Raw Scan</em></span>.
-          </p>
-          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/my/mf_0_audio.mp4"
-                    type="video/mp4">
-          </video> -->
         </div>
       </div>
     </div>
@@ -285,56 +292,26 @@
     <!-- Animation. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Direct Controls</h2>
+        <h2 class="title is-3">Fully Functional Animation</h2>
 
         <!-- Interpolating. -->
         
         <div class="content has-text-justified">
           <p>
-            NFR provides a FACS like rigging space for direct controls. 
+            Thanks to the explicit rigging  on the facial mesh, driving signals can be directly applied to <em><span style="color: #305794">GauFace</span></em> for animation.
           </p>
         </div>
-        <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/my/editing_2.mp4"
+        <video id="ARKit" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/ARKit.mp4"
                     type="video/mp4">
           </video>
         <br/>
-        <!--/ Interpolating. -->
-
-        <h2 class="title is-3">Better than Linear Rigging</h2>
-
-        <!-- Interpolating. -->
-        
-        <div class="content has-text-justified">
-          <p>
-            Given the same expression codes, NFR maintains pausible expressions while linear rigging fails.
-          </p>
-        </div>
-        <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/my/NFR_better.mp4"
-                    type="video/mp4">
-          </video>
-        <br/>
-
       </div>
     </div>
     <!--/ Animation. -->
 
 
-    <!-- Concurrent Work. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Related Links</h2>
-
-        <div class="content has-text-justified">
-          <p>
-            Our project is build on top of existing works that are topology-agnostic. <a href="https://dl.acm.org/doi/abs/10.1145/3528223.3530141">Neural Jacobian Fields</a> enables us to process the facial deformation in an expressive and accurate manner. <a href="https://dl.acm.org/doi/full/10.1145/3507905">DiffusionNet</a> helps to aggregate information on the input meshes with varying topologies. 
-          </p>
-          
-        </div>
-      </div>
-    </div>
-    <!--/ Concurrent Work. -->
+    
 
   </div>
 </section>
