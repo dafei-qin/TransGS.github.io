@@ -423,7 +423,7 @@
             const nextButton = document.getElementById('nextButton');
           
             function showSlide(index) {
-              sliderWrapper.style.transform = `translateX(-${(index -1) * 45}vw)`; // Adjusted for new size
+              sliderWrapper.style.transform = `translateX(-${(index) * 45}vw + 45vw)`; // Adjusted for new size
             }
           
             prevButton.addEventListener('click', () => {
