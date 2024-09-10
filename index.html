@@ -8,15 +8,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     .slider-row {
-      display: flex; /* Use flexbox to create a row layout */
+      display: flex; /* Create a flex container for the row */
       justify-content: space-around; /* Distribute space evenly around items */
       align-items: center; /* Center items vertically */
       margin: 20px auto; /* Add margin around the row */
+      width: 90%; /* Set a width for the row */
     }
 
     .slider-container {
       width: 30%; /* Set each slider to occupy about 30% of the row */
-      height: auto; /* Maintain the aspect ratio */
       position: relative;
       overflow: hidden;
     }
@@ -29,6 +29,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block; /* Ensure the images are displayed as block elements */
     }
 
     .slider-bar {
@@ -310,6 +311,8 @@
   </section>
 
 
+
+
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
@@ -324,13 +327,13 @@
             <img src="./static/images/diffuse_after.jpg" alt="Image 2" class="slider-image2">
             <div class="slider-bar" id="sliderBar1"></div>
           </div>
-          <p>Adding a brand-new SIGGRAPH logo to the diffuse texture. Note that the <em><span style="color: #305794">GauFace</span></em> counterpart maintains sharp logo boundary and harmonic lightning.</p>
+
           <div class="slider-container">
             <img src="./static/images/normal_before.jpg" alt="Image 1" class="slider-image1">
             <img src="./static/images/normal_after.jpg" alt="Image 2" class="slider-image2">
             <div class="slider-bar" id="sliderBar2"></div>
           </div>
-          <p>Add wrinkles via the normal texture. All details are faithfully transferred to <em><span style="color: #305794">GauFace</span></em> with full 4K resolution.</p>
+
           <div class="slider-container">
             <img src="./static/images/specular_before.jpg" alt="Image 1" class="slider-image1">
             <img src="./static/images/specular_after.jpg" alt="Image 2" class="slider-image2">
@@ -338,8 +341,6 @@
           </div>
         </div>
 
-        <p>Adding highlights to the nose.</p>
-        
         <!-- Slider Script -->
         <script>
           // Slider functionality
