@@ -314,16 +314,41 @@
     
         <!-- Visual Effects. -->
         <div class="column is-half">
-          <div class="content">
-            <h2 class="title is-3">Visual Effects</h2>
-            <p>
-              Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
-              would be impossible without nerfies since it would require going through a wall.
-            </p>
-            <img src="./static/images/diffuse_before.jpg" class="interpolation-image">
-            <img src="./static/images/diffuse_after.jpg"  class="interpolation-image">
-          </div> 
+          <div class="slider-container">
+            
+            <div class="content">
+              <h2 class="title is-3">Visual Effects</h2>
+              <p>
+                Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
+                would be impossible without nerfies since it would require going through a wall.
+              </p>
+              <img src="./static/images/diffuse_before.jpg" class="interpolation-image">
+              <img src="./static/images/diffuse_after.jpg"  class="slider-image2">  
+              <div class="slider-bar" id="sliderBar3"></div>
+            </div> 
+          </div>
         </div>
+        <script>
+          // Slider functionality
+          const sliderContainers = document.querySelectorAll('.slider-container');
+          sliderContainers.forEach(container => {
+            const slider = container.querySelector('.slider-bar');
+            const image2 = container.querySelector('.slider-image2');
+        
+            container.addEventListener('mousemove', (e) => {
+              const containerRect = container.getBoundingClientRect();
+              const offsetX = e.clientX - containerRect.left;
+              const percent = (offsetX / containerRect.width) * 100;
+              slider.style.left = percent + '%';
+              image2.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
+            });
+        
+            container.addEventListener('mouseleave', () => {
+              slider.style.left = '50%';
+              image2.style.clipPath = 'inset(0 50% 0 0)';
+            });
+          });
+        </script>
         <!--/ Visual Effects. -->
     
         <!-- Matting. -->
