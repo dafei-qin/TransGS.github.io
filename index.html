@@ -256,14 +256,19 @@
 <section class="section">
   <div class="container is-max-desktop">
 
-    <div class="columns is-centered">
+    <div class="columns is-centered has-text-centered">
       <!-- Visual Effects. -->
       <div class="column">
         <div class="content">
           <h2 class="title is-3"><em>Methods</h2>
         </div>
+
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column">
         <div class="content">
-          <h3 class="title is-3"><em><span style="color: #305794">GauFace</span></em> Representation & Dataset</h2>
+          <h3 class="title is-4"><em><span style="color: #305794">GauFace</span></em> Representation & Dataset</h2>
           <img src="./static/images/GauFace.jpg" class="interpolation-image"/>
           <p>
              <em>Left:</em> we collect 143 facial assets under 134 lighting conditions, with a total of 1,023 combinations. <em>Middle:</em> for each combination, we render 1,071 frames under 153 different expressions with random camera positions. <em>Right:</em> our <em><span style="color: #305794">GauFace</span></em> asset defines the center of Gaussians on the UV map consistent across different identities and introduces dynamic shadow vectors to disentangle the deformation-dependent and deformation-agnostic shading effects.
@@ -271,7 +276,7 @@
         </div>
 
         <div class="content">
-          <h3 class="title is-3"><em><span style="color: #E4AE00;">TransGS</span></em> Structure</h2>
+          <h3 class="title is-4"><em><span style="color: #E4AE00;">TransGS</span></em> Structure</h2>
           <img src="./static/images/gsg_arch.jpg" class="interpolation-image"/>
           <p>
             We condition <em><span style="color: #E4AE00;">TransGS</span></em> on the image textures <em><i>I</i></em>, geometry code <em><i>G</i></em> and HDRI map <em><i>L</i></em>, to generate the <em><span style="color: #305794">GauFace</span></em> asset <em><i>A</i></em> in a patch-based manner. <strong>Left:</strong> during training, a random global offset <em><i>q</i></em> is sampled, and the corresponding Image patch <em><i>I_q</i></em> and <em><span style="color: #305794">GauFace</span></em> patch <em><i>A_q</i></em> are fed to the diffusion transformer. <strong>Right:</strong> at inference, the full <em><span style="color: #305794">GauFace</span></em> asset can be synthesized in a single pass. 
