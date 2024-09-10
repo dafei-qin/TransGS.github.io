@@ -43,6 +43,16 @@
       z-index: 10;
     }
   </style>
+
+<style>
+
+  .resizable-block {
+    width: 50%; /* 50% of the parent container's width */
+    height: auto; /* Height adjusts automatically based on the content */
+  }
+</style>
+
+
   </head>
 
   <body>
@@ -324,8 +334,8 @@
           <div class="slider-container">
             <div class="content">
               <img src="./static/images/diffuse_before.jpg" class="interpolation-image" style="width:  80%;">
-              <img src="./static/images/diffuse_before.jpg" class="slider-image1" style="width: 80%;">
-              <img src="./static/images/diffuse_after.jpg"  class="slider-image2" style="width: 80%;">  
+              <img src="./static/images/diffuse_before.jpg" class="slider-image1">
+              <img src="./static/images/diffuse_after.jpg"  class="slider-image2">  
               <div class="slider-bar" id="sliderBar3"></div>
             </div> 
           </div>
@@ -337,18 +347,20 @@
       <div class="columns is-centered">
         <div class="column">
           <div class="slider-container">
+            <div class="'resizable-block">
+                <div class="content">
+                  <h2 class="title is-3">Visual Effects</h2>
+                  <p>
+                    Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
+                    would be impossible without nerfies since it would require going through a wall.
+                  </p>
+                  <img src="./static/images/diffuse_before.jpg" class="slider-image1">
+                  <img src="./static/images/diffuse_after.jpg"  class="slider-image2">  
+                  <div class="slider-bar" id="sliderBar3"></div>
+                </div> 
+              </div>
+            </div>
             
-            <div class="content">
-              <h2 class="title is-3">Visual Effects</h2>
-              <p>
-                Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
-                would be impossible without nerfies since it would require going through a wall.
-              </p>
-              <img src="./static/images/diffuse_before.jpg" class="slider-image1">
-              <img src="./static/images/diffuse_after.jpg"  class="slider-image2">  
-              <div class="slider-bar" id="sliderBar3"></div>
-            </div> 
-          </div>
         </div>
         <script>
           // Slider functionality
