@@ -52,7 +52,11 @@
     height: auto; /* Height adjusts automatically based on the content */
   }
 </style>
-
+<style>
+  .empty-block {
+    margin-bottom: 20px; /* Adds 20px of space below each content block */
+  }
+</style>
 
   </head>
 
@@ -273,8 +277,9 @@
           <p>
              <strong>Left:</strong> we collect 143 facial assets under 134 lighting conditions, with a total of 1,023 combinations. <strong>Middle:</strong> for each combination, we render 1,071 frames under 153 different expressions with random camera positions. <strong>Right:</strong> our <strong><span style="color: #305794">GauFace</span></strong> asset defines the center of Gaussians on the UV map consistent across different identities and introduces dynamic shadow vectors to disentangle the deformation-dependent and deformation-agnostic shading effects.
           </p>
+          <div class="empty-block"></div>
         </div>
-
+        
         <div class="content">
           <h3 class="title is-4"><strong><span style="color: #E4AE00;">TransGS</span></strong> Structure</h2>
           <img src="./static/images/gsg_arch.jpg" class="interpolation-image"/>
