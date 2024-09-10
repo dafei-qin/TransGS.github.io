@@ -311,29 +311,27 @@
   </section>
 
 
-
-
-<section class="section">
+<!-- <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">Interactive Editing</h2>
         <p>Thanks to the rich conditions of <em><span style="color: #E4AE00;">TransGS</span></em>, editing of textures can be seamlessly transferred to the <em><span style="color: #305794">GauFace</span></em> representation in an interactive speed. </p>
         
-        <!-- Three Columns in a Row -->
+
         <div class="slider-row">
           <div class="slider-container">
             <img src="./static/images/diffuse_before.jpg" alt="Image 1" class="slider-image1">
             <img src="./static/images/diffuse_after.jpg" alt="Image 2" class="slider-image2">
             <div class="slider-bar" id="sliderBar1"></div>
           </div>
-
+          <p>Adding a brand-new SIGGRAPH logo to the diffuse texture. Note that the <em><span style="color: #305794">GauFace</span></em> counterpart maintains sharp logo boundary and harmonic lightning.</p>
           <div class="slider-container">
             <img src="./static/images/normal_before.jpg" alt="Image 1" class="slider-image1">
             <img src="./static/images/normal_after.jpg" alt="Image 2" class="slider-image2">
             <div class="slider-bar" id="sliderBar2"></div>
           </div>
-
+          <p>Add wrinkles via the normal texture. All details are faithfully transferred to <em><span style="color: #305794">GauFace</span></em> with full 4K resolution.</p>
           <div class="slider-container">
             <img src="./static/images/specular_before.jpg" alt="Image 1" class="slider-image1">
             <img src="./static/images/specular_after.jpg" alt="Image 2" class="slider-image2">
@@ -341,7 +339,8 @@
           </div>
         </div>
 
-        <!-- Slider Script -->
+        <p>Adding highlights to the nose.</p>
+
         <script>
           // Slider functionality
           const sliderContainers = document.querySelectorAll('.slider-container');
@@ -366,7 +365,48 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
+
+
+<div class="container is-max-desktop">
+
+  <div class="columns is-centered">
+
+    <!-- Visual Effects. -->
+    <div class="column">
+      <div class="content">
+        <h2 class="title is-3">Visual Effects</h2>
+        <p>
+          Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
+          would be impossible without nerfies since it would require going through a wall.
+        </p>
+        <img src="./static/images/diffuse_before.jpg" alt="Image 1" class="slider-image1">
+        <img src="./static/images/diffuse_after.jpg" alt="Image 2" class="slider-image2">
+      </div>
+    </div>
+    <!--/ Visual Effects. -->
+
+    <!-- Matting. -->
+    <div class="column">
+      <h2 class="title is-3">Matting</h2>
+      <div class="columns is-centered">
+        <div class="column content">
+          <p>
+            As a byproduct of our method, we can also solve the matting problem by ignoring
+            samples that fall outside of a bounding box during rendering.
+          </p>
+          <img src="./static/images/normal_before.jpg" alt="Image 1" class="slider-image1">
+          <img src="./static/images/normal_after.jpg" alt="Image 2" class="slider-image2">
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  
 
 <!-- BibTeX Section -->
 <section class="section" id="BibTeX">
