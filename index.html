@@ -4,13 +4,14 @@
   <meta charset="utf-8">
   <meta name="description"
         content="TransGS convert PBR facial assets to high-quality 3DGS in 5 seconds, delivering unprecedented real-time rendering quality on mobile platforms.">
-  <meta name="keywords" content="TransG, GauFace, Facial Rendering, 3D Gaussian Splatting">
+  <meta name="keywords" content="TransGS, GauFace, Facial Rendering, 3D Gaussian Splatting">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     .slider-container {
-      width: 45vw; /* 45% of the viewport width */
-      height: 45vh; /* Maintain the aspect ratio */
-      margin: 20px auto; /* Center each slider and add some space between them */
+      width: 45%; /* 45% of the parent/container width */
+      height: auto; /* Maintain the aspect ratio based on the width */
+      max-height: 45vh; /* Limit height to 45% of viewport height */
+      margin: 20px auto; /* Center each slider and add space between them */
       position: relative;
       overflow: hidden;
     }
